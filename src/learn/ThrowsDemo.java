@@ -18,6 +18,6 @@ public class ThrowsDemo {
 	  public static void main(String args[]){  
 		  ThrowsDemo obj=new ThrowsDemo();  
 	   obj.p();  
-	   System.out.println("c:\\demo.txt");  
+	   System.out.println("c:\\demo.txt");
 	  }  
 }
