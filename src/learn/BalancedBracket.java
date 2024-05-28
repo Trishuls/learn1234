@@ -15,21 +15,18 @@ public class BalancedBracket {
                 return false;
             char check;
             switch (ch) {
-                case ')':
+                case ')' -> {
                     check = set.pop();
-                    if (check==('{') || check==('['))
-                        return false;
-                    break;
-                case ']':
+                    if (check == ('{') || check == ('[')) return false;
+                }
+                case ']' -> {
                     check = set.pop();
-                    if (check==('(') || check==('{'))
-                        return false;
-                    break;
-                case '}':
+                    if (check == ('(') || check == ('{')) return false;
+                }
+                case '}' -> {
                     check = set.pop();
-                    if (check==('(') || check==('['))
-                        return false;
-                    break;
+                    if (check == ('(') || check == ('[')) return false;
+                }
             }
 
         }
