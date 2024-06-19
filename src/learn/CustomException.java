@@ -1,6 +1,6 @@
 package learn;
 
-class InvalidAgeException extends Exception {
+class InvalidAgeException extends RuntimeException {
     public InvalidAgeException(String str)
     {
         super(str);
@@ -22,8 +22,7 @@ public class CustomException {
         try{
             validate(13);
         } catch (InvalidAgeException e) {
-            System.out.println("exception caught");
-            System.out.println(e);
+            throw new InvalidAgeException("Exception caught");
         }
     }
 }

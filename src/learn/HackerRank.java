@@ -8,7 +8,7 @@ public class HackerRank {
 	public static void main(String[] args) {	
 		Scanner sc=new Scanner(System.in);
 		ArrayList<String> list = new ArrayList<>();
-        System.out.println("================================");
+        System.out.println("================================>");
         for(int i=0;i<3;i++){
             String s1=sc.next();
             int len = s1.length();
@@ -27,7 +27,7 @@ public class HackerRank {
         }
         for(String val:list)
         	System.out.println(val);
-        System.out.println("================================");
+        System.out.println("================================?");
 	}
 
 }

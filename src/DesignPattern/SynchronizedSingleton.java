@@ -6,11 +6,14 @@ public class SynchronizedSingleton {
 
     public static SynchronizedSingleton getInstance() {
         if (instance==null){
-            synchronized (Singleton.class) {
-                if (instance==null)
+            synchronized (SynchronizedSingleton.class) {
                     instance = new SynchronizedSingleton();
             }
         }
         return instance;
+    }
+
+    public static void main(String[] args) {
+        SynchronizedSingleton.getInstance();
     }
 }

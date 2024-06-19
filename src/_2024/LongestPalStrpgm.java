@@ -1,4 +1,4 @@
-package DesignPattern;
+package _2024;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,15 +24,28 @@ public class LongestPalStrpgm {
     public static List<String> palindrome(String str){
         List<String> list = new ArrayList<>();
 
-        for (int a=0; a< str.length();a++){
-            for (int b=str.length()-1;b>0;b--){
-                int c = b+1;
-                if (str.charAt(a)==str.charAt(b)){
-                    String s = str.substring(a,c);
-                    if(checkPal(s)){
-                        list.add(s);
-                    }
+//        for (int a=0; a< str.length();a++){
+//            for (int b=str.length()-1;b>0;b--){
+//                int c = b+1;
+//                if (str.charAt(a)==str.charAt(b)){
+//                    String s = str.substring(a,c);
+//                    if(checkPal(s)){
+//                        list.add(s);
+//                    }
+//                    break;
+//                }
+//            }
+//        }
+
+        for (int i=0;i<str.length();i++){
+            for (int j=str.length()-1;j>0; j--) {
+                int c = j+1;
+                if (str.charAt(i)!=str.charAt(j))
                     break;
+                else {
+                    String substr = str.substring(i,c);
+                    if (checkPal(substr))
+                        list.add(substr);
                 }
             }
         }
