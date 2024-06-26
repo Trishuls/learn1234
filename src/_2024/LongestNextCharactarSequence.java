@@ -1,6 +1,7 @@
 package _2024;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class LongestNextCharactarSequence {
@@ -47,5 +48,6 @@ public class LongestNextCharactarSequence {
             strlen.add(sb.toString());
         }
         System.out.println(strlen);
+        strlen.stream().sorted(Comparator.reverseOrder()).limit(1).forEach(System.out::println);
     }
 }

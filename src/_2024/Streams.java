@@ -185,7 +185,7 @@ public class Streams {
 
         //Given a list of strings, find out those strings which start with a number?
         List<String> listOfStrings21 = Arrays.asList("One", "2wo", "3hree", "Four", "5ive", "Six");
-        listOfStrings21.stream().filter(s ->Character.isDigit(s.charAt(0))).toList().forEach(System.out::println);
+        listOfStrings21.stream().filter(s ->Character.isDigit(s.charAt(0))).forEach(System.out::println);
 
         String reverse = "reverse";
         reverse.chars().mapToObj(c -> (char) Character.toLowerCase(c)).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
