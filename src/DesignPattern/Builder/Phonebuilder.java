@@ -1,4 +1,4 @@
-package DesignPattern;
+package DesignPattern.Builder;
 
 public class Phonebuilder {
     private String brand;

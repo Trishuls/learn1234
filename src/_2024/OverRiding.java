@@ -6,7 +6,7 @@ class Parent {
     }
 }
 class Child extends Parent {
-    @Override
+//    @Override
     public void show() {
         System.out.println("Child show");
     }
@@ -16,8 +16,10 @@ class Child extends Parent {
 }
 public class OverRiding {
     public static void main(String[] args) {
-        Child c = new Child();
-        c.show();
-        c.run();
+        Parent p;
+        p = new Child();
+//        Child c = new Child();
+        p.show();
+//        c.run();
     }
 }

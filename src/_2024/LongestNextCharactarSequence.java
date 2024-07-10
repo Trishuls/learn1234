@@ -32,7 +32,6 @@ public class LongestNextCharactarSequence {
 //        }
 //        System.out.println(strarr[0]+" -> "+length);
 
-        int len = 0;
         List<String> strlen = new ArrayList<>();
         for (int i=0;i<str.length();i++) {
             StringBuilder sb = new StringBuilder();
@@ -48,6 +47,6 @@ public class LongestNextCharactarSequence {
             strlen.add(sb.toString());
         }
         System.out.println(strlen);
-        strlen.stream().sorted(Comparator.reverseOrder()).limit(1).forEach(System.out::println);
+        strlen.stream().sorted(Comparator.comparing(String::length).reversed()).limit(1).forEach(System.out::println);
     }
 }

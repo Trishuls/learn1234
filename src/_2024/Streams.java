@@ -84,10 +84,16 @@ public class Streams {
         for (Map.Entry<Boolean, List<Employee>> entry : res10.entrySet()) {
             if (entry.getKey()) System.out.println("greater than 25 = "+entry.getValue());
             else System.out.println("lesser that 25 = "+entry.getValue());
-
-            //Who is the oldest employee in the organization? What is his age and which department he belongs to?
-            System.out.println(employeeList.stream().max(Comparator.comparingInt(Employee::getAge)));
         }
+        //Who is the oldest employee in the organization? What is his age and which department he belongs to?
+        System.out.println(employeeList.stream().max(Comparator.comparingInt(Employee::getAge)));
+
+
+
+//***************************************************************************************************************************************
+
+
+
         List<Integer> list = Arrays.asList(1,2,2,3,3,4,5,6,6,7,8);
         Set<Integer> set = new HashSet<>();
         System.out.println("---------------------------> ");
@@ -160,6 +166,8 @@ public class Streams {
 
         List<Integer> list2 = Arrays.asList(12, 56, 17, 21, 94, 34);
 
+        Stream.concat(list1.stream(),list2.stream()).distinct().forEach(System.out::println);
+
         list1.stream().filter(list2::contains).forEach(System.out::println);
 
         //Reverse each word of a string using Java 8 streams?
@@ -189,5 +197,10 @@ public class Streams {
 
         String reverse = "reverse";
         reverse.chars().mapToObj(c -> (char) Character.toLowerCase(c)).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+
+        //get digits from alphanumeric string
+        String an = "asd4sad5asd6as866ds";
+        String r = an.chars().filter(Character::isDigit).mapToObj(Character::toString).collect(Collectors.joining());
+        System.out.println(r);
     }
 }

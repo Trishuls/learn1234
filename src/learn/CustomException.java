@@ -7,7 +7,7 @@ class InvalidAgeException extends RuntimeException {
     }
 }
 public class CustomException {
-    static void validate(int val) throws InvalidAgeException {
+    static void validate(int val) {
         if (val < 18)
         {
             throw new InvalidAgeException("not eligible to vote");
