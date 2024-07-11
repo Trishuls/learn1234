@@ -202,5 +202,8 @@ public class Streams {
         String an = "asd4sad5asd6as866ds";
         String r = an.chars().filter(Character::isDigit).mapToObj(Character::toString).collect(Collectors.joining());
         System.out.println(r);
+
+        employeeList.stream().sorted(Comparator.comparing(Employee::getAge).reversed().thenComparingInt(Employee::getAge)).toList();
+
     }
 }
