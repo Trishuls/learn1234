@@ -15,8 +15,8 @@ public class LongestAscDescConseIntArray {
     private static int descConsecutive(int[] arr) {
         int max = 1;
         int curMax = 1;
-        for (int i=0;i<arr.length;i++){
-            if (i+1< arr.length&&arr[i+1]<arr[i]) {
+        for (int i=0;i<arr.length-1;i++){
+            if (arr[i+1]<arr[i]) {
                 ++curMax;
             } else {
                 max = Math.max(max,curMax);
@@ -29,9 +29,9 @@ public class LongestAscDescConseIntArray {
     private static int ascendingConsecutive(int[] arr) {
         int max = 1;
         int curMax = 1;
-        for (int i=0;i<arr.length;i++) {
+        for (int i=0;i<arr.length-1;i++) {
 
-            if (i+1<arr.length&&arr[i+1]>arr[i]){
+            if (arr[i+1]>arr[i]){
                 ++curMax;
             }
             else {

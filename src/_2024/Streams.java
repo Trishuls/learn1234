@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class Streams {
     public static void main(String[] args) {
-        List<Employee> employeeList = new ArrayList<Employee>();
+        List<Employee> employeeList = new ArrayList<>();
 
         employeeList.add(new Employee(111, "Jiya Brein", 32, "Female", "HR", 2011, 25000.0));
         employeeList.add(new Employee(122, "Paul Niksui", 25, "Male", "Sales And Marketing", 2015, 13500.0));
@@ -109,7 +109,7 @@ public class Streams {
         System.out.println(decimalList.stream().mapToDouble(Double::doubleValue).sum());
         List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
         System.out.println(listOfIntegers.stream().max(Comparator.naturalOrder()).get());
-        System.out.println(listOfIntegers.stream().reduce(0, Integer::sum));
+        System.out.println(listOfIntegers.stream().reduce(Integer::sum));
         List<Integer> listOfIntegers1 = Arrays.asList(71, 18, 42, 21, 67, 32, 95, 14, 56, 87);
         Map<Boolean, List<Integer>> resVal = listOfIntegers1.stream().collect(Collectors.partitioningBy(i -> i % 2 == 0));
         listOfIntegers1.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
@@ -149,17 +149,20 @@ public class Streams {
 
         //Given a list of strings, sort them according to increasing order of their length?
         List<String> listOfStrings2 = Arrays.asList("Java", "Python", "C#", "HTML", "Kotlin", "C++", "COBOL", "C");
-        listOfStrings2.stream().sorted(Comparator.comparing(String::length).reversed()).forEach(System.out::println);
+        listOfStrings2.stream().sorted(Comparator.comparing(String::length).reversed().thenComparing(s->s.length())).forEach(System.out::println);
 
         //Given an integer array, find sum and average of all elements?
         int[] a1 = new int[] {45, 12, 56, 15, 24, 75, 31, 89};
         System.out.println(Arrays.stream(a1).sum());
         System.out.println(Arrays.stream(a1).average());
 
-        //Given an integer list, find sum and average of all elements?
+        //Given an integer list, find sum, average, max, min of all elements?
         List<Integer> iL = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
+        iL.stream().sorted(Collections.reverseOrder());
         System.out.println(iL.stream().mapToInt(Integer::intValue).sum());
         System.out.println(iL.stream().mapToInt(Integer::intValue).average());
+        System.out.println(iL.stream().max(Comparator.naturalOrder()).get());
+        System.out.println(iL.stream().min(Comparator.naturalOrder()).get());
 
         //How do you find common elements between two arrays?
         List<Integer> list1 = Arrays.asList(71, 21, 34, 89, 56, 28);
@@ -168,7 +171,7 @@ public class Streams {
 
         Stream.concat(list1.stream(),list2.stream()).distinct().forEach(System.out::println);
 
-        list1.stream().filter(list2::contains).forEach(System.out::println);
+        list1.stream().filter(s->!list2.contains(s)).forEach(System.out::println);
 
         //Reverse each word of a string using Java 8 streams?
         String str21 = "Java Concept Of The Day";
@@ -203,7 +206,14 @@ public class Streams {
         String r = an.chars().filter(Character::isDigit).mapToObj(Character::toString).collect(Collectors.joining());
         System.out.println(r);
 
-        employeeList.stream().sorted(Comparator.comparing(Employee::getAge).reversed().thenComparingInt(Employee::getAge)).toList();
+        String reverse1 = "reverse the string";
+        //reverse string in its place
+        Stream.of(reverse1).map(word -> new StringBuilder(word).reverse()).collect(Collectors.joining(" "));
 
+        employeeList.stream().sorted(Comparator.comparing(Employee::getAge).reversed().thenComparingInt(Employee::getAge).thenComparing(Employee::getName)).toList();
+
+        //How do you find the most repeated element in an array?
+        List<String> listOfStrings1 = Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Pen", "Note Book", "Pencil");
+        listOfStrings1.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).get().getValue();
     }
 }

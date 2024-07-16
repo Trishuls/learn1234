@@ -16,6 +16,7 @@ public class InheritanceDemo {
 			
 			z = x*y;
 			System.out.println(z);		}
+		@Override
 		public void add(int a, int b) {
 			z = a+b+10;
 			System.out.println(z);

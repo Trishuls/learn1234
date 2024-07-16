@@ -1,5 +1,6 @@
 package _2024;
 
+//public class AuthenticationAndAuthorization extends WebSecurityConfigurerAdaptor {
 public class AuthenticationAndAuthorization {
 
 //    protected void configure(AuthenticationManagerBuilder auth) {

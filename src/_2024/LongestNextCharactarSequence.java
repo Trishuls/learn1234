@@ -32,21 +32,37 @@ public class LongestNextCharactarSequence {
 //        }
 //        System.out.println(strarr[0]+" -> "+length);
 
-        List<String> strlen = new ArrayList<>();
+//        List<String> strlen = new ArrayList<>();
+//        for (int i=0;i<str.length();i++) {
+//            StringBuilder sb = new StringBuilder();
+//            char a = str.charAt(i);
+//            sb.append(a);
+//            for (int j=i+1;j<str.length();j++) {
+//                if ((a+1) != str.charAt(j)) {
+//                    break;
+//                }
+//                sb.append(str.charAt(j));
+//                a=str.charAt(j);
+//            }
+//            strlen.add(sb.toString());
+//        }
+//        System.out.println(strlen);
+//        strlen.stream().sorted(Comparator.comparing(String::length).reversed()).limit(1).forEach(System.out::println);
+        //optimized loop
+        StringBuilder builder = new StringBuilder();
+        StringBuilder max = new StringBuilder();
         for (int i=0;i<str.length();i++) {
-            StringBuilder sb = new StringBuilder();
-            char a = str.charAt(i);
-            sb.append(a);
-            for (int j=i+1;j<str.length();j++) {
-                if ((a+1) != str.charAt(j)) {
-                    break;
-                }
-                sb.append(str.charAt(j));
-                a=str.charAt(j);
+            if (i>0 && str.charAt(i)==str.charAt(i-1)+1) {
+                builder.append(str.charAt(i));
+            } else {
+                builder.setLength(0);
+                builder.append(str.charAt(i));
             }
-            strlen.add(sb.toString());
+            if (builder.length()>max.length()) {
+                max.setLength(0);
+                max.append(builder);
+            }
         }
-        System.out.println(strlen);
-        strlen.stream().sorted(Comparator.comparing(String::length).reversed()).limit(1).forEach(System.out::println);
+        System.out.println(max.toString());
     }
 }

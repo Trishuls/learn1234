@@ -1,5 +1,7 @@
 package learn;
 
+import java.util.stream.IntStream;
+
 public class StrPalindrome {
 
 	static boolean isPalindrome(String str) {
@@ -21,9 +23,14 @@ public class StrPalindrome {
 	
 	public static void main(String args[])
 	{
-		String str = "qwwqq";
-		
-		if(isPalindrome(str))
+		String str = "qwwq";
+        if (IntStream.rangeClosed(0, str.length() / 2).noneMatch(i -> str.charAt(i) != str.charAt(str.length() - i - 1))) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("not palindrome");
+        }
+
+        if(isPalindrome(str))
 		{
 			System.out.println("string is palindrome");
 		}
