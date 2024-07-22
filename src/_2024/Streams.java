@@ -142,6 +142,7 @@ public class Streams {
         // Find sum of all digits of a number in Java 8?
         int i = 15623;
         System.out.println((Integer) Stream.of(String.valueOf(i).split("")).mapToInt(Integer::parseInt).sum());
+        System.out.println(String.valueOf(i).chars().map(Character::getNumericValue).sum());
 
         //Find second largest number in an integer array?
         List<Integer> secondLargest = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
@@ -159,7 +160,7 @@ public class Streams {
         //Given an integer list, find sum, average, max, min of all elements?
         List<Integer> iL = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
         iL.stream().sorted(Collections.reverseOrder());
-        System.out.println(iL.stream().mapToInt(Integer::intValue).sum());
+        System.out.println(iL.stream().reduce(Integer::sum).get());
         System.out.println(iL.stream().mapToInt(Integer::intValue).average());
         System.out.println(iL.stream().max(Comparator.naturalOrder()).get());
         System.out.println(iL.stream().min(Comparator.naturalOrder()).get());
@@ -210,7 +211,7 @@ public class Streams {
         //reverse string in its place
         Stream.of(reverse1).map(word -> new StringBuilder(word).reverse()).collect(Collectors.joining(" "));
 
-        employeeList.stream().sorted(Comparator.comparing(Employee::getAge).reversed().thenComparingInt(Employee::getAge).thenComparing(Employee::getName)).toList();
+        employeeList.stream().sorted(Comparator.comparing(Employee::getAge).reversed().thenComparingInt(Employee::getAge).thenComparing(Employee::getName)).forEach(System.out::println);
 
         //How do you find the most repeated element in an array?
         List<String> listOfStrings1 = Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Pen", "Note Book", "Pencil");

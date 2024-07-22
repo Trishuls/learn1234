@@ -1,4 +1,4 @@
-package learn;
+package _2024;
 
 import java.util.*;
 
@@ -65,7 +65,5 @@ public class BalancedBracket {
         String brackets = "{({()()[]})}";
         if (verify(brackets)) System.out.println("balanced");
         else System.out.println("Not balanced");
-
-
     }
 }

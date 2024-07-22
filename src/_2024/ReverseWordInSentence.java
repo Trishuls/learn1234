@@ -2,7 +2,6 @@ package _2024;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,7 +21,7 @@ public class ReverseWordInSentence {
         }
         list.add(sb.toString());
         Collections.reverse(list);
-        list.stream().collect(Collectors.joining(" "));
+        System.out.println(list.stream().collect(Collectors.joining(" ")));
 
 
         //Java 8

@@ -63,6 +63,6 @@ public class LongestNextCharactarSequence {
                 max.append(builder);
             }
         }
-        System.out.println(max.toString());
+        System.out.println(max);
     }
 }
