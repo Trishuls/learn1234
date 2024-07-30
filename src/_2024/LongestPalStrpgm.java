@@ -14,9 +14,8 @@ public class LongestPalStrpgm {
         List<String> list = new ArrayList<>();
         for (int a=0;a<str.length();a++) {
             for (int b=str.length()-1;b>0;b--) {
-                int c = b+1;
                 if (str.charAt(a)==str.charAt(b)) {
-                    String subStr = str.substring(a,c);
+                    String subStr = str.substring(a,b+1);
                     if (checkPal(subStr))
                         list.add(subStr);
                     break;

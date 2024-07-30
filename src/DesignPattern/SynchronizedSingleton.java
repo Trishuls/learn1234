@@ -14,7 +14,7 @@ public class SynchronizedSingleton implements Cloneable{
     }
 
     protected Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException("Forbidden clonning singleton class");
+        throw new CloneNotSupportedException("Forbidden cloning singleton class");
     }
 
     public static void main(String[] args) {

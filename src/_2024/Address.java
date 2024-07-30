@@ -22,7 +22,7 @@ public class Address implements Cloneable{
     public String area;
     public String country;
 
-    protected Object clone() throws CloneNotSupportedException {
+    protected Object clone() {
         return new Address(this.area,this.country);
     }
 }

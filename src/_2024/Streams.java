@@ -150,7 +150,7 @@ public class Streams {
 
         //Given a list of strings, sort them according to increasing order of their length?
         List<String> listOfStrings2 = Arrays.asList("Java", "Python", "C#", "HTML", "Kotlin", "C++", "COBOL", "C");
-        listOfStrings2.stream().sorted(Comparator.comparing(String::length).reversed().thenComparing(s->s.length())).forEach(System.out::println);
+        listOfStrings2.stream().sorted(Comparator.comparing(String::length).reversed().thenComparing(String::length)).forEach(System.out::println);
 
         //Given an integer array, find sum and average of all elements?
         int[] a1 = new int[] {45, 12, 56, 15, 24, 75, 31, 89};
