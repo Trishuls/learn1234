@@ -23,9 +23,12 @@ public class RunnableVsCallable {
             }
             System.out.println(sum.get());
         };
-        Thread t1 = new Thread(addInt);
-        Thread t2 = new Thread(addInt);
-        t1.start();
-        t2.start();
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        executorService.execute(addInt);
+        executorService.close();
+//        Thread t1 = new Thread(addInt);
+//        Thread t2 = new Thread(addInt);
+//        t1.start();
+//        t2.start();
     }
 }

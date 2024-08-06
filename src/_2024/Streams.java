@@ -134,7 +134,7 @@ public class Streams {
         //Java 8 program to check if two strings are anagrams or not?
         String s1 = "RaceCar";
         String s2 = "CarRace";
-        String sres1 = Stream.of(s1.split("")).map(String::toUpperCase).sorted().collect(Collectors.joining());
+        String sres1 = Stream.of(s1.toLowerCase().split("")).sorted().collect(Collectors.joining());
         String sres2 = Stream.of(s2.split("")).map(String::toUpperCase).sorted().collect(Collectors.joining());
         if (sres1.equals(sres2)) System.out.println("Strings are anagram");
         else System.out.println("not anagram");
