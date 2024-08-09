@@ -1,13 +1,21 @@
 package DesignPattern;
 
 public class SynchronizedSingleton implements Cloneable{
+    //multi threading
     private volatile static SynchronizedSingleton instance;
-    private SynchronizedSingleton(){}
+    private SynchronizedSingleton(){
+        //reflection
+        if(instance!=null) {
+            throw new RuntimeException("Single tone violation");
+        }
+    }
 
     public static SynchronizedSingleton getInstance() {
         if (instance==null){
             synchronized (SynchronizedSingleton.class) {
+                if (instance==null) {
                     instance = new SynchronizedSingleton();
+                }
             }
         }
         return instance;

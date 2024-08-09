@@ -32,7 +32,7 @@ public class Streams {
         Map<String, Long> res1 = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
         System.out.println(res1);
 
-        //Print the name of all departments in the organization?
+        // Print the name of all departments in the organization?
         employeeList.stream().map(Employee::getDepartment).distinct().forEach(System.out::println);
 
         //What is the average age of male and female employees?
@@ -95,6 +95,7 @@ public class Streams {
 
 
         List<Integer> list = Arrays.asList(1,2,2,3,3,4,5,6,6,7,8);
+        System.out.println(list.indexOf(9));
         Set<Integer> set = new HashSet<>();
         System.out.println("---------------------------> ");
         list.stream().filter(s -> !set.add(s)).forEach(System.out::println);

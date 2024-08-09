@@ -3,7 +3,7 @@ package _2024;
 public class BinarySearch {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5,6};
-        int target = 6;
+        int target = 3;
         int left = 0;
         int right = array.length-1;
         while (left<=right) {

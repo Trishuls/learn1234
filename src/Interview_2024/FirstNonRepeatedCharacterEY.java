@@ -1,9 +1,6 @@
 package Interview_2024;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -24,8 +21,8 @@ public class FirstNonRepeatedCharacterEY {
 
         List<Integer> list1 = Arrays.asList(1,2,4,3,8,7);
         List<Integer> list2 = Arrays.asList(5,4,3,2,1);
-        if (list1.size()!=list2.size())
-            System.out.println("List are not equal");
+//        list2.stream().map(s->FirstNonRepeatedCharacterEY.compute(Collections.singletonList(s)));
+        System.out.println("List are not equal");
         if (compute(list1).equals(compute(list2)))
             System.out.println("List are Equal");
         else System.out.println("List are not equal");
